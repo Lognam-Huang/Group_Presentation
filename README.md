@@ -6,6 +6,7 @@ Paper: Autonomous UAV Navigation: A DDPG-based Deep Reinforcement Learning Appro
 
 [Online Resources](https://ieeexplore.ieee.org/abstract/document/9181245)
 
+
 ### Background & Purpose
 **Background**:
 1. UAV plays more and more important role in Smart City 
