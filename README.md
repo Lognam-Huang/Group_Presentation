@@ -35,20 +35,20 @@ Before DDPG, we need to know some other things:
 
 ### SPG - Stochastic Policy Gradient
 
-#### Notations:
-- **\( \pi_\theta(s, a) \)**: This represents the policy, which gives the probability of taking action \( a \) given state \( s \).
-- **\( Q^w(s, a) \)**: This is the action-value function, representing the expected return for taking action \( a \) in state \( s \) and then following policy \( \pi \).
-- **\( \nabla_\theta \)**: This denotes the gradient with respect to \( \theta \).
+#### Notations: 
+- $\pi_\theta(s, a)$: This represents the policy, which gives the probability of taking action \( a \) given state \( s \).
+- $Q^w(s, a)$: This is the action-value function, representing the expected return for taking action \( a \) in state \( s \) and then following policy \($\pi$\).
+- $\nabla_\theta$: This denotes the gradient with respect to \( $\theta$ \).
 
 #### Formula Explanation:
-- **\( \nabla_\theta J(\theta) \)**: This is the gradient of the policy's objective function \( J \) with respect to its parameters \( \theta \). The goal is to optimize this objective function using gradient ascent.
-- **\( \mathbb{E} \)**: This is the expectation, averaging over the contributions of all possible state-action pairs.
-- **\( \nabla_\theta \log \pi_\theta(s, a) \)**: This is the gradient of the logarithm of the policy with respect to \( \theta \). This term provides insights into how to tweak the parameter \( \theta \) to adjust the probability of taking action \( a \) in state \( s \).
-- **\( Q^w(s, a) \)**: The action-value function provides guidance to the policy, indicating which actions are preferable in a given state.
+- $\nabla_\theta J(\theta)$: This is the gradient of the policy's objective function \( J \) with respect to its parameters \( \theta \). The goal is to optimize this objective function using gradient ascent.
+- $\mathbb{E}$: This is the expectation, averaging over the contributions of all possible state-action pairs.
+- $\nabla_\theta \log \pi_\theta(s, a)$: This is the gradient of the logarithm of the policy with respect to \( $\theta$ \). This term provides insights into how to tweak the parameter \( $\theta$ \) to adjust the probability of taking action \( a \) in state \( s \).
+- $Q^w(s, a)$: The action-value function provides guidance to the policy, indicating which actions are preferable in a given state.
 
-The essence of the formula is that we aim to increase the probability of actions that yield high returns and decrease the probability of actions that lead to low returns. Therefore, we use the action-value function \( Q^w(s, a) \) to weight the policy gradient to adjust the policy.
+The essence of the formula is that we aim to increase the probability of actions that yield high returns and decrease the probability of actions that lead to low returns. Therefore, we use the action-value function \( $Q^w(s, a)$ \) to weight the policy gradient to adjust the policy.
 
-This gradient-based approach offers an effective mechanism to explore the optimal policy space, iteratively refining the policy parameters \( \theta \) to hone in on the optimal policy.
+This gradient-based approach offers an effective mechanism to explore the optimal policy space, iteratively refining the policy parameters \( $\theta$ \) to hone in on the optimal policy.
 
 
 #### DPG
