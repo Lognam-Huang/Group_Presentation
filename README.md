@@ -9,7 +9,9 @@ Paper: Autonomous UAV Navigation: A DDPG-based Deep Reinforcement Learning Appro
 1. UAV plays more and more important role in Smart City 
    1. Cargo delievery
    2. Traffic monitoring
-   3. ![Figure_1](images/2023-10-12/Figure 1.png)
+   <!-- 3. ![Figure_1](images/2023-10-12/figure_1.png) -->
+   3. <img src="images/2023-10-12/figure_1.png" width="70%" height="70%"/>
+
 2. Challenges:
    1. Path finding/planning
    2. Most of the existing solutions are based on computationally **complex mixed-integer linear programming or evolutionary algorithms** that do not always achieve near-optimal solutions. 
@@ -40,7 +42,7 @@ In reinforcement learning, the goal is often to find a policy $\pi_\theta(s, a)$
 
 #### Grad objective function of the SPG
 
-FIG
+![SPG](images/2023-10-12/SPG_GOF.webp)
 
 The "grad objective function" of an algorithm is:
 - the quantity that describes how the value of the objective function varies with the model parameters
@@ -71,7 +73,7 @@ Unlike the SPG approach, the DPG outputs a specific action for a given state, ra
 
 #### Grad objective function of the DPG
 
-FIG
+![DPG](images/2023-10-12/DPG_GOF.webp)
 
 #### Notations:
 - $\mu_\theta(s)$: Represents the **deterministic policy**. For a given state \( s \), it directly provides an action.
@@ -97,7 +99,7 @@ Q-learning is a model-free reinforcement learning algorithm designed to estimate
 2. **Update Rule**: At the heart of Q-learning is its update rule. As the agent interacts within the environment and observes a reward, it updates its estimate of \( $Q$ \). The update rule is given by:
 \[ $Q(s, a) \leftarrow Q(s, a) + \alpha \left( r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right)$ \]
 
-FIG
+![QL](images/2023-10-12/Q-learning_rule.webp)
 
 Where:
    - \( $\alpha$ \) is the learning rate.
@@ -117,7 +119,7 @@ Notice:
 
 Actor-Critic is an algorithmic framework in reinforcement learning that combines the strengths of policy gradient methods and value function approximation. It comprises two main components: the "Actor" and the "Critic," each with its own network structure.
 
-FIG
+![AC](images/2023-10-12/Actor-critic.png)
 
 Here are the main features of the Actor-Critic method:
 
@@ -144,7 +146,7 @@ DDPG is a model-free off-policy actor-critic algorithm that combines:
 2. DPG. 
    1. DPG extends it to the **continuous action space** while learning a deterministic policy.
 
-FIG
+![DDPG](images/2023-10-12/DQN&DDPG.webp)
 
 ### Simulation results
 
