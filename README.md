@@ -148,9 +148,46 @@ DDPG is a model-free off-policy actor-critic algorithm that combines:
 
 ![DDPG](images/2023-10-12/DQN&DDPG.webp)
 
+### Paper in general
+
+In related work, there are some other technique used in similar scenario:
+1. The ant colony optimization algorithm
+2. Grey wolf optimization
+3. Fruit fly optimization algorithms
+
+Penalty mentioned in this paper:
+
+![DDPG](images/2023-10-12/DDPG_penalty.png)
+
+The reward function is composed of two terms: 
+1. Target guidance reward
+   1. The target guidance reward, denoted by fgui, is used to motivate the flying unit to reach its target as fast as possible
+2. Obstacle penalty
+   1. Obstacle penalty, denoted by fobp is responsible for alerting the UAV to keep a certain safety distance off the obstacles. 
+
+![DDPG](images/2023-10-12/DDPG_reward_function.png)
+
+### Training Phase and Transfer Learning
+
+![DDPG](images/2023-10-12/DDPG_training_phase.png)
+
+1. Initially, we train
+the model in an obstacle-free environment. Training in such environment, grants the UAV the capability to reach any target in the covered 3D area with continuous space action. 
+2. Then,the trained model on the obstacle-free environment will serve as a base for future models trained on other environments with obstacles
+3. Afterwards, we transfer the acquired knowledge
+(i.e. source task) and use it to improve the UAV learning of new tasks where it updates its path based on the obstacle locations while flying toward its target.
+
 ### Simulation results
 
-### Inspiration & Reflection
+Reward of UAV in the simulation:
+
+![DDPG](images/2023-10-12/DDPG_reward.png)
+
+Task-complete rate:
+
+![DDPG](images/2023-10-12/DDPG_result.png)
+
+<!-- ### Inspiration & Reflection -->
 
 ### Links
 Resources & References:
