@@ -32,7 +32,7 @@ Deep Deterministic Policy Gradient (DDPG), an off-policy Reinforcement Learning 
 Before DDPG, we need to know some other things:
 1. SPG - Stochastic Policy Gradient
 2. DPG - Deterministic Policy Gradient
-3. Q-learniing
+3. Q-learning
 4. Actor-critic
 5. DDPG - Deep Deterministic Policy Gradient
 
@@ -49,14 +49,14 @@ The "grad objective function" of an algorithm is:
 - and we can update and optimize the model parameters based on this information.
 
 #### Notations: 
-- $\pi_\theta(s, a)$: This represents the **policy**, which gives the probability of taking action \( a \) given state \( s \).
-- $Q^w(s, a)$: This is the **action-value function**, representing the **expected return** for taking action \( a \) in state \( s \) and then following policy \($\pi$\).
+- $\pi_\theta(s, a)$: This represents the **policy**, which gives the probability of taking action \( $a$ \) given state \( $s$ \).
+- $Q^w(s, a)$: This is the **action-value function**, representing the **expected return** for taking action \( $a$ \) in state \( $s$ \) and then following policy \($\pi$\).
 - $\nabla_\theta$: This denotes the **gradient** with respect to \( $\theta$ \).
 
 #### Formula Explanation:
-- $\nabla_\theta J(\theta)$: This is the **gradient** of the **policy's objective function** \( J \) with respect to its parameters \( $\theta$ \). The goal is to optimize this objective function using gradient ascent.
+- $\nabla_\theta J(\theta)$: This is the **gradient** of the **policy's objective function** \( $J$ \) with respect to its parameters \( $\theta$ \). The goal is to optimize this objective function using gradient ascent.
 - $\mathbb{E}$: This is the **expectation**, averaging over the contributions of all possible state-action pairs.
-- $\nabla_\theta \log \pi_\theta(s, a)$: This is the gradient of the logarithm of the policy with respect to \( $\theta$ \). This term provides insights into how to tweak the parameter \( $\theta$ \) to **adjust the probability of taking action \( a \) in state \( s \).**
+- $\nabla_\theta \log \pi_\theta(s, a)$: This is the gradient of the logarithm of the policy with respect to \( $\theta$ \). This term provides insights into how to tweak the parameter \( $\theta$ \) to **adjust the probability of taking action \( $a$ \) in state \( $s$ \).**
 
 The essence of the formula is that we aim to:
 1. increase the probability of actions that yield high returns
@@ -76,15 +76,15 @@ Unlike the SPG approach, the DPG outputs a specific action for a given state, ra
 ![DPG](images/2023-10-12/DPG_GOF.webp)
 
 #### Notations:
-- $\mu_\theta(s)$: Represents the **deterministic policy**. For a given state \( s \), it directly provides an action.
-- $Q^\mu(s, a)$: This is the action-value function, representing the expected return when taking action \( a \) in state \( s \) and subsequently following the policy \( $\mu$ \).
-- $\nabla_\theta$ and $\nabla_a$: Denote the gradients with respect to \( $\theta$ \) and action \( a \), respectively.
+- $\mu_\theta(s)$: Represents the **deterministic policy**. For a given state \( $s$ \), it directly provides an action.
+- $Q^\mu(s, a)$: This is the action-value function, representing the expected return when taking action \( $a$ \) in state \( $s$ \) and subsequently following the policy \( $\mu$ \).
+- $\nabla_\theta$ and $\nabla_a$: Denote the gradients with respect to \( $\theta$ \) and action \( $a$ \), respectively.
 
 #### Formula Explanation:
-- $\nabla_\theta J(\theta)$: The gradient of the policy's objective function \( J \) with respect to its parameters \( $\theta$ \). The optimization aim is to adjust this objective function via gradient ascent.
+- $\nabla_\theta J(\theta)$: The gradient of the policy's objective function \( $J$ \) with respect to its parameters \( $\theta$ \). The optimization aim is to adjust this objective function via gradient ascent.
 - $\mathbb{E}$: Represents the expectation, averaging over the contributions from all potential states.
 - $\nabla_\theta \mu_\theta(s)$: The **gradient** of the **deterministic policy** concerning its parameters \( $\theta$ \).
-- $\nabla_a Q^\mu(s, a)$: The gradient of the **action-value function** concerning action \( a \). It's crucial to note that this gradient is evaluated at \( $a = \mu_\theta(s)$ \), signifying that the examination revolves around tweaking the action proposed by the policy to enhance the \( $Q$ \) value.
+- $\nabla_a Q^\mu(s, a)$: The gradient of the **action-value function** concerning action \( $a$ \). It's crucial to note that this gradient is evaluated at \( $a = \mu_\theta(s)$ \), signifying that the examination revolves around tweaking the action proposed by the policy to enhance the \( $Q$ \) value.
 
 In a nutshell:
 - **SPG seeks to optimize a probability distribution over actions**
@@ -94,7 +94,7 @@ In a nutshell:
 
 Q-learning is a model-free reinforcement learning algorithm designed to estimate the** action-value function** and derive a policy that **maximizes cumulative rewards**. Here are the primary characteristics and the process of Q-learning:
 
-1. **Action-Value Function \( $Q(s, a)$ \)**: Q-learning aims to learn a function \( Q(s, a) \) that provides the expected reward for taking action \( a \) in state \( s \). The optimal \( Q \) function, denoted as \( Q^*(s, a) \), corresponds to the optimal policy.
+1. **Action-Value Function \( $Q(s, a)$ \)**: Q-learning aims to learn a function \( $Q(s, a)$ \) that provides the expected reward for taking action \( $a$ \) in state \( $s$ \). The optimal \( $Q$ \) function, denoted as \( $Q^*(s, a)$ \), corresponds to the optimal policy.
 
 2. **Update Rule**: At the heart of Q-learning is its update rule. As the agent interacts within the environment and observes a reward, it updates its estimate of \( $Q$ \). The update rule is given by:
 \[ $Q(s, a) \leftarrow Q(s, a) + \alpha \left( r + \gamma \max_{a'} Q(s', a') - Q(s, a) \right)$ \]
@@ -104,9 +104,9 @@ Q-learning is a model-free reinforcement learning algorithm designed to estimate
 Where:
    - \( $\alpha$ \) is the learning rate.
    - \( $\gamma$ \) is the discount factor, determining the value of future rewards.
-   - \( $r$ \) is the reward obtained from taking action \( a \) in state \( s \).
-   - \( $s'$ \) is the new state after taking action \( a \).
-   - \( $\max_{a'} Q(s', a')$ \) is the maximum Q-value for all possible actions in the new state \( s' \).
+   - \( $r$ \) is the reward obtained from taking action \( $a$ \) in state \( $s$ \).
+   - \( $s'$ \) is the new state after taking action \( $a$ \).
+   - \( $\max_{a'} Q(s', a')$ \) is the maximum Q-value for all possible actions in the new state \( $s'$ \).
 
 Notice:
 - **Model-Free**: Q-learning is model-free because it doesn't require an explicit model of the environment's transition dynamics or rewards. 
