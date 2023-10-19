@@ -1,7 +1,7 @@
 # Group_Presentation
 This repo is used to do the presentation some paper shared in group meeting
 
-## 2023-10-09
+## 2023-10-19
 Paper: Autonomous UAV Navigation: A DDPG-based Deep Reinforcement Learning Approach
 
 ### Background & Purpose
@@ -92,7 +92,7 @@ In a nutshell:
 
 ### Q-learning 
 
-Q-learning is a model-free reinforcement learning algorithm designed to estimate the** action-value function** and derive a policy that **maximizes cumulative rewards**. Here are the primary characteristics and the process of Q-learning:
+Q-learning is a model-free reinforcement learning algorithm designed to estimate the **action-value function** and derive a policy that **maximizes cumulative rewards**. Here are the primary characteristics and the process of Q-learning:
 
 1. **Action-Value Function \( $Q(s, a)$ \)**: Q-learning aims to learn a function \( $Q(s, a)$ \) that provides the expected reward for taking action \( $a$ \) in state \( $s$ \). The optimal \( $Q$ \) function, denoted as \( $Q^*(s, a)$ \), corresponds to the optimal policy.
 
@@ -195,3 +195,7 @@ Resources & References:
 2. [Deep Deterministic Policy Gradient(DDPG) — an off-policy Reinforcement Learning algorithm](https://medium.com/intro-to-artificial-intelligence/deep-deterministic-policy-gradient-ddpg-an-off-policy-reinforcement-learning-algorithm-38ca8698131b)
 3. [Paper: Deterministic Policy Gradient Algorithms](http://proceedings.mlr.press/v32/silver14.pdf)
 4. [Q-learning: a value-based reinforcement learning algorithm](https://medium.com/intro-to-artificial-intelligence/q-learning-a-value-based-reinforcement-learning-algorithm-272706d835cf)
+
+
+## DDPG
+https://www.researchgate.net/figure/Architecture-of-Twin-delayed-DDPG-TD3_fig5_360567032
